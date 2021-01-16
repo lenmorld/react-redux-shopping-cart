@@ -13,10 +13,10 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      products: data.products,
+      // products: data.products,
       cartItems: JSON.parse(localStorage.getItem("cartItems") || "[]"),
-      size: "",
-      sort: ""
+      // size: "",
+      // sort: ""
     }
   }
 
@@ -52,42 +52,42 @@ class App extends React.Component {
     }
   }
 
-  sortProducts = (event) => {
-    console.log(event.target.value)
+  // sortProducts = (event) => {
+  //   console.log(event.target.value)
 
-    const sort = event.target.value
+  //   const sort = event.target.value
 
-    this.setState({
-      sort: sort,
-      products: [...data.products].sort((a, b) => {
-        if (sort === "lowest") {
-          return a.price > b.price ? 1 : -1;
-        } else if (sort === "highest") {
-          return a.price < b.price ? 1 : -1;
-        } else {
-          return a._id > b._id ? 1 : -1;
-        }
-      })
-    })
-  }
+  //   this.setState({
+  //     sort: sort,
+  //     products: [...data.products].sort((a, b) => {
+  //       if (sort === "lowest") {
+  //         return a.price > b.price ? 1 : -1;
+  //       } else if (sort === "highest") {
+  //         return a.price < b.price ? 1 : -1;
+  //       } else {
+  //         return a._id > b._id ? 1 : -1;
+  //       }
+  //     })
+  //   })
+  // }
 
-  filterProducts = (event) => {
-    console.log(event.target.value)
+  // filterProducts = (event) => {
+  //   console.log(event.target.value)
 
-    const size = event.target.value;
+  //   const size = event.target.value;
 
-    if (!size) {
-      this.setState({
-        size: "",
-        products: data.products
-      })
-    } else {
-      this.setState({
-        size: size,
-        products: data.products.filter(product => product.availableSizes.includes(size))
-      })
-    }
-  }
+  //   if (!size) {
+  //     this.setState({
+  //       size: "",
+  //       products: data.products
+  //     })
+  //   } else {
+  //     this.setState({
+  //       size: size,
+  //       products: data.products.filter(product => product.availableSizes.includes(size))
+  //     })
+  //   }
+  // }
 
   render() {
     return (
@@ -99,13 +99,16 @@ class App extends React.Component {
           <main>
             <div className="content">
               <div className="main">
-                <Filter count={this.state.products.length}
+                {/* <Filter count={this.state.products.length}
                   size={this.state.size}
                   sort={this.state.sort}
                   filterProducts={this.filterProducts}
                   sortProducts={this.sortProducts}
                 />
-                <Products products={this.state.products} addToCart={this.addToCart} />
+                <Products products={this.state.products} addToCart={this.addToCart} /> */}
+                {/* NOW HANDLED BY REDUX */}
+                <Filter />
+                <Products />
               </div>
               <div className="sidebar">
                 <Cart cartItems={this.state.cartItems} removeFromCart={this.removeFromCart} createOrder={this.createOrder} />

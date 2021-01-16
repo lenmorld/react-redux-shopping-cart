@@ -116,7 +116,9 @@ returns hoc that wraps component
 */
 
 // state.products.items - since productReducer returns { items: ... }
-const mapStateToProps = (state) => ({ products: state.products.items })
+// const mapStateToProps = (state) => ({ products: state.products.items })
+// use filteredItems from reducer
+const mapStateToProps = (state) => ({ products: state.products.filteredItems })
 const mapDispatchToProps = {
     fetchProducts
 }
