@@ -10,47 +10,47 @@ import { Provider } from 'react-redux'
 // import './App.css';
 
 class App extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      // products: data.products,
-      cartItems: JSON.parse(localStorage.getItem("cartItems") || "[]"),
-      // size: "",
-      // sort: ""
-    }
-  }
+  // constructor() {
+  // super()
+  // this.state = {
+  // products: data.products,
+  // cartItems: JSON.parse(localStorage.getItem("cartItems") || "[]"),
+  // size: "",
+  // sort: ""
+  // }
+  // }
 
   createOrder = (order) => {
     alert("Save " + order.name)
   }
 
-  removeFromCart = (product) => {
-    const cartItems = this.state.cartItems.filter(item => item._id !== product._id)
+  // removeFromCart = (product) => {
+  //   const cartItems = this.state.cartItems.filter(item => item._id !== product._id)
 
-    this.setState({
-      cartItems
-    })
+  //   this.setState({
+  //     cartItems
+  //   })
 
-    localStorage.setItem("cartItems", JSON.stringify(cartItems))
-  }
+  //   localStorage.setItem("cartItems", JSON.stringify(cartItems))
+  // }
 
-  addToCart = (product) => {
-    if (this.state.cartItems.find(item => item._id === product._id)) {
-      console.error("already in cart")
-    } else {
+  // addToCart = (product) => {
+  //   if (this.state.cartItems.find(item => item._id === product._id)) {
+  //     console.error("already in cart")
+  //   } else {
 
-      const cartItems = [...this.state.cartItems, {
-        ...product,
-        count: 1
-      }]
+  //     const cartItems = [...this.state.cartItems, {
+  //       ...product,
+  //       count: 1
+  //     }]
 
-      this.setState({
-        cartItems
-      })
+  //     this.setState({
+  //       cartItems
+  //     })
 
-      localStorage.setItem("cartItems", JSON.stringify(cartItems))
-    }
-  }
+  //     localStorage.setItem("cartItems", JSON.stringify(cartItems))
+  //   }
+  // }
 
   // sortProducts = (event) => {
   //   console.log(event.target.value)
@@ -111,7 +111,8 @@ class App extends React.Component {
                 <Products />
               </div>
               <div className="sidebar">
-                <Cart cartItems={this.state.cartItems} removeFromCart={this.removeFromCart} createOrder={this.createOrder} />
+                {/* <Cart cartItems={this.state.cartItems} removeFromCart={this.removeFromCart} createOrder={this.createOrder} /> */}
+                <Cart />
               </div>
             </div>
           </main>
