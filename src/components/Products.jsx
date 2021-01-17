@@ -5,6 +5,7 @@ import Modal from 'react-modal'
 import Zoom from "react-reveal/Zoom"
 import { connect } from 'react-redux'
 import { fetchProducts } from '../actions/productActions'
+import { addToCart } from '../actions/cartActions'
 class Products extends Component {
     constructor(props) {
         super(props)
@@ -120,7 +121,8 @@ returns hoc that wraps component
 // use filteredItems from reducer
 const mapStateToProps = (state) => ({ products: state.products.filteredItems })
 const mapDispatchToProps = {
-    fetchProducts
+    fetchProducts,
+    addToCart
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products)
